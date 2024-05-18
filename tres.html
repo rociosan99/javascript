@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro</title>
+  <style>
+        label{
+            display: block;
+            float: left;
+            width: 70px;
+        }
+  </style>
+</head>
+<body>
+  <h1>Registro</h1>
+  
+  <form action "" id="formulario">
+    <div>
+        <label for "nombre">Nombre</label>
+        <input type = "text" id= 'nombre' >
+    </div>
+    
+    <div>
+        <label for "password">password</label>
+        <input type = "password" id= 'password' >
+    </div>
+        <input type="submit" onclick= 'return enviarForm()' value="enviar">
+  </form>
+  <div id="error"></div>
+ 
+
+  <script>
+
+    var nombre= document.getElementById('nombre' );
+    var password= documen.getElementById('password');
+    var error= documen.getElementById('error');
+    error.style.color= 'red';
+
+
+    function enviarForm() {
+
+        console.log("enviando formulario");
+        var mensError=[];
+
+        if (nombre.value === null || nombre.value === ' '){
+            mensError.push('Ingresa tu nombre');
+        }
+
+        if (contraseña.value === null || contraseña.value === ' '){
+            mensError.push('Ingresa tu contraseña');
+        }
+
+       error.innerHTML=  mensError.join(', '); 
+       return false; 
+    }
+var form = document.getElementById("formulario")
+       form.addEventListener('submit', function(event){
+        event.preventDefault();
+      
+
+       } )
+
+  </script>
+</body>
+</html>

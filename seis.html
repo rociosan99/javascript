@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reloj Digital</title>
+<style>
+  #clock {
+    font-size: 65px;
+    text-align: center;
+    margin-top: 50px;
+  }
+</style>
+</head>
+<body>
+
+<div id="clock"></div>
+
+<script>
+  // Función para actualizar el reloj
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours();
+    var minutes = now.getMinutes();
+    var seconds = now.getSeconds();
+
+    // Agrega un cero delante si es necesario para mantener el formato de dos dígitos
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    // Construye la cadena de tiempo en formato HH:MM:SS
+    var timeString = hours + ':' + minutes + ':' + seconds;
+
+    // Actualiza el contenido del elemento con id "clock"
+    document.getElementById('clock').textContent = timeString;
+  }
+
+  // Llama a la función updateClock cada segundo
+  setInterval(updateClock, 1000);
+
+  // Llama a la función una vez para mostrar la hora actual de inmediato
+  updateClock();
+</script>
+
+</body>
+</html>

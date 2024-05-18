@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería de Imágenes - Las Razas de Perros Más Conocidas</title>
+<style>
+  #gallery {
+    text-align: center;
+  }
+  img {
+    max-width: 300px;
+    display: none; /* Oculta todas las imágenes por defecto */
+    margin: 20px auto 0; /* Centra las imágenes horizontalmente y agrega un margen superior */
+  }
+  #prevBtn, #nextBtn {
+    margin-bottom: 200px; /* Agrega un margen inferior a los botones */
+  }
+</style>
+</head>
+<body>
+
+<h1 style="text-align: center;">Las Razas de Perros Más Conocidas</h1>
+
+<div id="gallery">
+  <img src="imagenes/imagen1.jfif" alt="Imagen 1">
+  <img src="imagenes/imagen2.jfif" alt="Imagen 2">
+  <img src="imagenes/imagen3.jfif" alt="Imagen 3">
+  <!-- Agrega más imágenes según sea necesario -->
+
+  <button id="prevBtn">Anterior</button>
+  <button id="nextBtn">Siguiente</button>
+</div>
+
+<script>
+  // Obtenemos referencias a los elementos del DOM
+  const images = document.querySelectorAll('#gallery img');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let currentIndex = 0; // Índice de la imagen actual
+
+  // Función para mostrar la imagen anterior
+  function showPreviousImage() {
+    images[currentIndex].style.display = 'none'; // Oculta la imagen actual
+    currentIndex = (currentIndex - 1 + images.length) % images.length; // Calcula el índice de la imagen anterior
+    images[currentIndex].style.display = 'block'; // Muestra la imagen anterior
+  }
+
+  // Función para mostrar la siguiente imagen
+  function showNextImage() {
+    images[currentIndex].style.display = 'none'; // Oculta la imagen actual
+    currentIndex = (currentIndex + 1) % images.length; // Calcula el índice de la siguiente imagen
+    images[currentIndex].style.display = 'block'; // Muestra la siguiente imagen
+  }
+
+  // Agregamos event listeners a los botones de navegación
+  prevBtn.addEventListener('click', showPreviousImage);
+  nextBtn.addEventListener('click', showNextImage);
+
+  // Mostramos la primera imagen al cargar la página
+  images[currentIndex].style.display = 'block';
+</script>
+
+</body>
+</html>

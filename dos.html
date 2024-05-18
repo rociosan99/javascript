@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista cambiante</title>
+  <style>
+    .elemento {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .elemento:hover {
+      background-color: #eee;
+    } /*estilo al pasar el cursor sobre un elemento*/
+
+    .cambiado {
+      background-color: blue;
+    }/* estilo al pasar el cursor sobre un elemento*/
+    
+  </style>
+</head>
+<body>
+  <h1>Lista de elementos</h1>
+  <div id="lista-elementos"></div>
+
+  <script>
+    const listaElementos = document.getElementById('lista-elementos');
+
+    /*Crear elementos y agregarlos a la lista*/
+   
+    for (let i = 0; i < 10; i++) {
+      const elemento = document.createElement('p');
+      elemento.classList.add('elemento');
+      elemento.textContent = `Elemento ${i + 1}`; /*Se agrega texto al elemento*/
+
+      // Agregar evento de clic al elemento
+      elemento.addEventListener('click', () => {
+        elemento.classList.toggle('cambiado'); /* Esto cambia el estilo de fondo del elemento*/
+      });
+
+      listaElementos.appendChild(elemento); 
+    }/*se agrega el elemento creado al contenedor de la lista*/
+
+  </script>
+
+</body>
+</html>
